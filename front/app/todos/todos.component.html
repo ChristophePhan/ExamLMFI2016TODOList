@@ -24,8 +24,8 @@
         <div class="pull-right">
           {{ todo.modificationDate | DatePipe }}
           <span class="label" [ngClass]="{'label-default': todo.status == status[0], 'label-primary': todo.status == status[1], 'label-success': todo.status == status[2]}">{{todo.status}}</span>
-          <button type="button"  class="btn btn-default glyphicon glyphicon-pencil" aria-hidden="true" (click)="gotoDetail(todo)"></button>
-          <button type="button"  class="btn btn-danger glyphicon glyphicon-remove" aria-hidden="false" (click)="delete(todo)"></button>
+          <button type="button"  class="btn btn-default glyphicon glyphicon-edit" aria-hidden="true" (click)="gotoDetail(todo)"></button>
+          <button type="button"  class="btn btn-danger glyphicon glyphicon-remove" aria-hidden="true" (click)="delete(todo)"></button>
         </div>
       </div>
     </li>
