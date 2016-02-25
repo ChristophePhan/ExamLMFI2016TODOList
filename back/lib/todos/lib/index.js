@@ -108,7 +108,8 @@ class TodosLib {
                     // assign new variables
                     const Data = {
                         text: payload.text,
-                        creationDate : new Date()
+                        creationDate : new Date(),
+                        modificationDate : new Date()
                     };
 
                     if (payload.status) {
@@ -245,7 +246,7 @@ class TodosLib {
             }
         );
     }
-    
+
     /**
      * Function to find a todo
      *

@@ -3,11 +3,13 @@ import {RouteParams, Router} from 'angular2/router';
 import {Todo} from "../todo/todo";
 import {TodoService} from "../todo/todo.service";
 import {NgForm}    from 'angular2/common';
-import {status} from '../todo/todos.status'
+import {status} from '../todo/todos.status';
+import {DatePipe} from '../date.pipe';
 
 @Component({
     selector: 'my-todo-detail',
-    templateUrl: 'app/todo-detail/todo-detail.component.html'
+    templateUrl: 'app/todo-detail/todo-detail.component.html',
+    pipes:[DatePipe]
 })
 export class TodoDetailComponent implements OnInit {
     todo: Todo;
@@ -27,12 +29,16 @@ export class TodoDetailComponent implements OnInit {
       if(this._routeParams.get('id')){
         this.id = this._routeParams.get('id');
         this._todoService.getTodoId(this.id)
-            .subscribe(todo => {this.todo.text = todo.text; this.todo.status = todo.status},
+            .subscribe(todo => {
+                this.todo.text = todo.text;
+                this.todo.status = todo.status;
+                this.todo.modificationDate = todo.modificationDate},
             error =>  this.errorMessage = <any>error);
             }
     }
 
     save(){
+      this.todo.modificationDate = undefined;
       if(this.id != null){
         this._todoService.putTodo(this.todo, this.id).subscribe(
                 todo  => this._router.navigate(['Todos']),

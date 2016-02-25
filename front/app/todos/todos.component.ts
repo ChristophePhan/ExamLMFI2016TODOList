@@ -4,7 +4,7 @@ import {TodoDetailComponent} from "../todo-detail/todo-detail.component";
 import {Todo} from "../todo/todo";
 import {TodoService} from "../todo/todo.service";
 import {TodoPipe} from './todos.pipe';
-import {DatePipe} from './date.pipe';
+import {DatePipe} from '../date.pipe';
 import {status} from '../todo/todos.status'
 
 @Component({
@@ -61,7 +61,4 @@ export class TodosComponent implements OnInit {
       this.filterValue = '';
     }
 
-    stringAsDate(dateStr) {
-    return new Date(dateStr);
-  }
 }
