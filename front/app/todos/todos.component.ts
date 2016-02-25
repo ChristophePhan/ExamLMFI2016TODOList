@@ -60,4 +60,8 @@ export class TodosComponent implements OnInit {
     resetFilter(){
       this.filterValue = '';
     }
+
+    stringAsDate(dateStr) {
+    return new Date(dateStr);
+  }
 }
