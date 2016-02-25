@@ -1,0 +1,6 @@
+{
+  "pluginsWithoutApiPrefix": ["utils", "db"],
+  "expose": {
+    "utils": ["schema", "getUrl"]
+  }
+}

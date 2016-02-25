@@ -1,0 +1,34 @@
+<button (click)="gotoNewDetail()" class="btn btn-primary">New Todo</button>
+<br/>
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading">My todo list</div>
+  <div class="panel-body">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="status" class="control-label">Filter by status : </label>
+        <!-- ne marche pas sur firefox -->
+        <select id="status" [(ngModel)]="filterValue"  class="form-control">
+          <option *ngFor="#s of status" [value]="s" >{{s}}</option>
+        </select>
+
+      </div>
+      <button class="btn btn-default" (click)="resetFilter()">Reset filter</button>
+    </form>
+
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="#todo of todos | TodoPipe:filterValue">
+      <div class="clearfix">
+        <div class="pull-left" style="white-space: pre-wrap;text-align:left">{{todo.text}}</div>
+        <div class="pull-right">
+          <span class="label" [ngClass]="{'label-default': todo.status == status[0], 'label-primary': todo.status == status[1], 'label-success': todo.status == status[2]}">{{todo.status}}</span>
+          <button type="button"  class="btn btn-default glyphicon glyphicon-pencil" aria-hidden="true" (click)="gotoDetail(todo)"></button>
+          <button type="button"  class="btn btn-danger glyphicon glyphicon-remove" aria-hidden="false" (click)="delete(todo)"></button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

@@ -1,0 +1,8 @@
+pretest:
+	@node ./node_modules/.bin/jshint .
+test:
+	@node ./node_modules/lab/bin/lab -v -L -C -c --coverage-exclude node_modules --coverage-exclude test --coverage-exclude config -r console -o stdout -r html -o coverage/index.html test
+test-on-travis:
+	@node ./node_modules/lab/bin/lab -v -L -C -c --coverage-exclude node_modules --coverage-exclude test --coverage-exclude config -r console -o stdout -r lcov -o coverage/lcov.info test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+.PHONY: pretest test test-on-travis

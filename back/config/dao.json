@@ -1,0 +1,8 @@
+{
+  "expose": {
+    "todos": ["create", "read", "readAll", "update", "delete", "readAndUpdate", "readWithFilter"]
+  },
+  "errorCodeMongoToHTTP" : {
+    "11000": 409
+  }
+}

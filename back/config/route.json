@@ -1,0 +1,11 @@
+{
+  "protocol": "http",
+  "host": "127.0.0.1",
+  "port": 4000,
+  "apiPath": "/api/",
+  "apiVersion": "v1",
+  "endPoints": {
+    "todos": "/todos",
+    "todo": "/todos/{todoId}"
+  }
+}

@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+  <form (ngSubmit)="save()" #todoForm="ngForm" >
+
+      <div class="form-group">
+        <label for="text" class="control-label">Todo</label>
+        <textarea id="text" class="form-control" [(ngModel)]="todo.text" required ngControl="text" #text="ngForm" rows="5">
+        </textarea>
+        <p class="text-danger" [hidden]="text.valid">Some words are required</p>
+      </div>
+      <div class="form-group" *ngIf="id !=null">
+        <label for="status" class="control-label">Status</label>
+        <select id="status" [(ngModel)]="todo.status" class="form-control" >
+          <option *ngFor="#s of status" [value]="s" >{{s}}</option>
+        </select>
+      </div>
+
+    <button class="btn btn-primary" [disabled]="!todoForm.form.valid">Save</button>
+  </form>
+  <button (click)="goBack()" class="btn btn-default">Back</button>
+  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+</div>
+</div>
