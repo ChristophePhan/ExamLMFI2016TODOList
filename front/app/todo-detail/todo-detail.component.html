@@ -4,7 +4,7 @@
 
       <div class="form-group">
         <label for="text" class="control-label">Todo</label>
-        <textarea id="text" class="form-control" [(ngModel)]="todo.text" required ngControl="text" #text="ngForm" rows="5">
+        <textarea id="text" class="form-control" [(ngModel)]="todo.text" required ngControl="text" #text="ngForm" rows="5" style="resize:vertical;">
         </textarea>
         <p class="text-danger" [hidden]="text.valid">Some words are required</p>
       </div>
