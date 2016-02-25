@@ -15,6 +15,7 @@ export class TodoDetailComponent implements OnInit {
     status = status;
     id: string;
 
+
     constructor(
         private _todoService: TodoService,
         private _routeParams: RouteParams,
